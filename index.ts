@@ -12,15 +12,15 @@ class Address {
 
 class User {
     name: String;
-    // this.age = age;
-    // this.email = email;
-    // this.address = address;
+    age: Number;
+    email: String;
+    address: Address;
 
-    constructor(name: String){
+    constructor(name: String, age: Number = undefined, email: String = "", address: Address = null){
         this.name = name;
-        // this.age = age;
-        // this.email = email;
-        // this.address = address;
+        this.age = age;
+        this.email = email;
+        this.address = address;
     }
 }
 
@@ -33,17 +33,17 @@ class UserBuilder {
     }
 
     setAge(age: Number){
-        //this.user.age = age;
+        this.user.age = age;
         return this;
     }
 
     setEmail(email: String){
-        //this.user.email = email;
+        this.user.email = email;
         return this;
     }
 
     setAddress(address: Address){
-        //this.user.address = address;
+        this.user.address = address;
         return this;
     }
 
@@ -53,7 +53,7 @@ class UserBuilder {
 
 }
 
-let user1 = new UserBuilder("Sam Perkins").build()
+let user1 = new UserBuilder("Sam Perkins").setEmail('sperk@osu.edu').build()
 console.log(user1)
 
 //new User('Sam Perkins', 21, 'sperk@osu.edu', new Address('34 Hampshire Rd', 'Columbus', 33527))
